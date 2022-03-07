@@ -7,7 +7,7 @@ import os
 import board
 import busio
 import adafruit_bno055
-from git import Repo
+#from git import Repo
 from picamera import PiCamera
 
 #setup imu and camera
@@ -32,11 +32,9 @@ def git_push():
     except:
         print('Couldn\'t upload to git')
 """
-
-    
+  
 #SET THRESHOLD
 threshold = 10
-
 
 #read acceleration
 while True:
@@ -44,16 +42,13 @@ while True:
 
     #CHECK IF READINGS ARE ABOVE THRESHOLD
 
-    if accelX > threshold and accelY > threshold and accelZ > threshold:
+    if int(accelX) > threshold and int(accelY) > threshold and int(accelZ) > threshold:
         #PAUSE
         #TAKE/SAVE/UPLOAD A PICTURE 
       name = "NarayananD"     #Last Name, First Initial  ex. FoxJ
         
       if name:
-            t = time.strftime("_%H%M%S")      # current time string
-            imgname = ('/home/pi/FlatSat/Images/%s%s' % (name,t)) #change directory to your folder
-    
-            #<YOUR CODE GOES HERE>#
-            
-    
+        t = time.strftime("_%H%M%S")      # current time string
+        imgname = ('/home/pi/FlatSat/Images/%s%s' % (name,t)) #change directory to your folder
+        camera.capture(imgname);
     #PAUSE
