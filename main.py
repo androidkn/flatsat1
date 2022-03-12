@@ -34,7 +34,7 @@ def git_push():
 """
   
 #SET THRESHOLD
-threshold = 10
+threshold = 4
 
 #read acceleration
 while True:
@@ -42,7 +42,7 @@ while True:
 
     #CHECK IF READINGS ARE ABOVE THRESHOLD
 
-    if int(accelX) > threshold and int(accelY) > threshold and int(accelZ) > threshold:
+    if abs(int(accelX or 0)) > threshold and abs(int(accelY or 0)) > threshold and abs(int(accelZ or 0)) > threshold:
         #PAUSE
         #TAKE/SAVE/UPLOAD A PICTURE 
       name = "NarayananD"     #Last Name, First Initial  ex. FoxJ
